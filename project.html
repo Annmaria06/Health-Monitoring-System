@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Monitoring System</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        body{
+            background-image: url("https://cdn-hjokj.nitrocdn.com/xKvPrJeRKcMfBVHKpjbxbYMvqmxtHXge/assets/images/optimized/rev-8d518bc/www.apptunix.com/blog/wp-content/uploads/sites/3/2020/04/Health-Tracking-apps.jpg");
+        }
+        /* Add your custom styles here */
+        .cls1{
+            font-size: large;
+        }
+        input {
+            padding: 20px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        canvas {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HEALTH MONITORING SYSTEM</h1>
+    
+    <div class="cls1">
+        <h2>Health Data:</h2>
+        <label for="heart_rate_input">Heart Rate:</label>
+        <input type="number" id="heart_rate_input" placeholder="Enter heart rate" style="background-color: hsl(272, 100%, 97%);">
+        <br>
+
+        <label for="blood_pressure_input">Blood Pressure:</label>
+        <input type="number" id="blood_pressure_input" placeholder="Enter blood pressure" style="background-color: #f0fffa;">
+        <br>
+
+        <label for="temperature_input">Temperature:</label>
+        <input type="number" id="temperature_input" placeholder="Enter temperature" style="background-color: #fff0f0;">
+        <br>
+
+        <button onclick="updateHealth()">Update Health Data</button>
+    </div>
+
+    <!-- Chart container -->
+    <div style="width: 80%; margin: auto;">
+        <canvas id="healthChart"></canvas>
+    </div>
+
+    <!-- Add Chart.js library -->
+    <script src=file:///C:/Users/Ann%20Mary/Desktop/Health-Tracking-apps.webp></script>
+
+    <script>
+        function updateHealth() {
+            // Your existing code for updating health data...
+        }
+
+        // Function to update the Chart with new data
+        function updateChart(heartRate, bloodPressure, temperature) {
+            const ctx = document.getElementById('healthChart').getContext('2d');
+
+            const chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Heart Rate', 'Blood Pressure', 'Temperature'],
+                    datasets: [{
+                        data: [heartRate, bloodPressure, temperature],
+                        backgroundColor: ['rgba(255, 99, 132, 0.8)', 'rgba(54, 162, 235, 0.8)', 'rgba(255, 205, 86, 0.8)'],
+                        borderWidth: 1,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Health Data',
+                        },
+                    }
+                },
+            });
+        }
+
+        // Fetch data when the page loads
+        fetchData();
+
+        // Initial data fetch
+        async function fetchData() {
+            // Your existing code for fetching initial data...
+        }
+    </script>
+</body>
+</html>
